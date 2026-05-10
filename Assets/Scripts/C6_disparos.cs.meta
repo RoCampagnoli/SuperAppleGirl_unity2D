@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: 31ca64a2bb2f1bc448d967ad9b71cbd9
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - prefabPiedra: {fileID: 1379283392994731998, guid: 5f0f1c6b07068ce4f9f8b4b4e38016dd, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

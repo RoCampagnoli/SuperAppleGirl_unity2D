@@ -34,8 +34,7 @@ public class C5_pickUps : MonoBehaviour{
         switch (elemento)
         {
             case TipoElemento.Manzana:
-                jugador.manzanasObtenidas += 1;
-                Debug.Log("Manzana +1. Total: " + jugador.manzanasObtenidas);
+                jugador.CantidadManzanas(1);
                 break;
             case TipoElemento.pVerde:
                 jugador.SumarVidaConPocion(10);

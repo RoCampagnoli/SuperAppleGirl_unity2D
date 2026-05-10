@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PersonajeVida : MonoBehaviour{
     public int vida=100;
-    public int manzanasObtenidas = 0;
+    public int manzanas = 10;
 
     void Start(){
 
@@ -23,5 +23,10 @@ public class PersonajeVida : MonoBehaviour{
     {
         vida -= a;
         Debug.Log("Vida restante: " + vida);
+    }
+    public void CantidadManzanas(int a)
+    {
+        manzanas += a;
+        Debug.Log("Manzanas: " + manzanas);
     }
 }
