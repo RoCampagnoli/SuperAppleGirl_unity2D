@@ -9,6 +9,7 @@ public class C3_movimiento : MonoBehaviour {
     //private int movimientoVertical;
     private Vector2 mov;
 
+    //para correr
     [SerializeField] private float speed=5f;//velocidad
     private float ogSpeed;
     private float multSpeed;//velocidad multiplicadas
@@ -16,18 +17,22 @@ public class C3_movimiento : MonoBehaviour {
 
     //para saltar
     [SerializeField] private float fuerzaSalto = 15f;
+    private bool saltoActivo = false;
 
     private Rigidbody2D rb;
 
-    
-     private bool saltoActivo = false;
-
+    Animator animator;
 
     void Start() {
         
         rb = GetComponent<Rigidbody2D>();//quiero acceder a las propiedades del rigid body
+        //guardamos la velocidad original
         ogSpeed = speed;
+        //calculamos la velocidad aumentada
         multSpeed = speed * valMultSpeed;
+
+        //accedo a las propiedades del animator
+        animator= GetComponent<Animator>();
     }
 
     private void Update()
@@ -113,8 +118,13 @@ public class C3_movimiento : MonoBehaviour {
                */
         // Movimiento en X, preservando la velocidad en Y del motor físico
         rb.velocity = new Vector2(movimientoHorizontal * speed, rb.velocity.y);
-
+        //usamos el Mathf-- devuelve un valor absoluto, siempre positivo
+        if (Mathf.Abs(rb.velocity.x) > 0){
+            animator.SetFloat("xVelocity", 1);
+        }
+        else { 
+            animator.SetFloat("xVelocity", 0);
+        }
     }
-
 }
 

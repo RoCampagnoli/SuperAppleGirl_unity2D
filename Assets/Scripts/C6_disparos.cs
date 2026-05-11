@@ -19,7 +19,6 @@ public class C6_disparos : MonoBehaviour
             if (jugador.manzanas > 0) { 
 
                 Disparar();
-                jugador.CantidadManzanas(-1);
 
             } else{
                 Debug.Log("No tienes manzanas para disparar");
@@ -42,7 +41,9 @@ public class C6_disparos : MonoBehaviour
             rb.velocity = Vector2.right * 10f;
             //le aplicamos una fuerza al objeto para que se mueva,
             //el primer parametro es la direccion de la fuerza y el segundo es la magnitud de la fuerza
+            jugador.CantidadManzanas(-1);
         }
-        Destroy(manzana, 2f);
+        Destroy(manzana, 2f);//las borra a los 2 segundos
+
     }
 }
