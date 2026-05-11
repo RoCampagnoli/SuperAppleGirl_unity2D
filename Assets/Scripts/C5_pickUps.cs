@@ -6,7 +6,7 @@ public class C5_pickUps : MonoBehaviour{
   
     private PersonajeVida jugador;
 
-    public enum TipoElemento { Manzana,pVerde,pRoja,pAzul}
+    public enum TipoElemento { Manzana,pVerde,pRoja,pAzul,espada}
     public TipoElemento elemento;
     
     void Start(){
@@ -44,6 +44,9 @@ public class C5_pickUps : MonoBehaviour{
                 break;
             case TipoElemento.pRoja:
                 jugador.SumarVidaConPocion(1);
+                break;
+            case TipoElemento.espada:
+                jugador.tengoEspada = true;
                 break;
 
         }

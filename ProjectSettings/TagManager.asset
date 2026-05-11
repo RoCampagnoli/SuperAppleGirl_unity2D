@@ -11,6 +11,7 @@ TagManager:
   - p.Verde
   - p.Azul
   - p.Roja
+  - malvado Violeta
   layers:
   - Default
   - TransparentFX

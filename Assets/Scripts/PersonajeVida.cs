@@ -5,14 +5,17 @@ using UnityEngine;
 public class PersonajeVida : MonoBehaviour{
     public int vida=100;
     public int manzanas = 10;
+    public bool tengoEspada = false;
+    private Animator animator;
+    private bool atacando = false;
+    
 
     void Start(){
-
+        animator = GetComponent<Animator>();
     }
 
     void Update(){
-        
-
+        AtacarConEspada();
     }
 
     public void SumarVidaConPocion(int a){
@@ -29,4 +32,16 @@ public class PersonajeVida : MonoBehaviour{
         manzanas += a;
         Debug.Log("Manzanas: " + manzanas);
     }
+
+    private void AtacarConEspada() {
+        if (Input.GetKeyDown(KeyCode.X) && tengoEspada ) {
+           
+            animator.SetTrigger("Ataque");//evento momentaneo
+            atacando = true;
+        } else {
+            atacando=false;
+        }
+    }
+   
+
 }
