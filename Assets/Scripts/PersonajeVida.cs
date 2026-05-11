@@ -7,8 +7,6 @@ public class PersonajeVida : MonoBehaviour{
     public int manzanas = 10;
     public bool tengoEspada = false;
     private Animator animator;
-    private bool atacando = false;
-    
 
     void Start(){
         animator = GetComponent<Animator>();
@@ -35,13 +33,8 @@ public class PersonajeVida : MonoBehaviour{
 
     private void AtacarConEspada() {
         if (Input.GetKeyDown(KeyCode.X) && tengoEspada ) {
-           
             animator.SetTrigger("Ataque");//evento momentaneo
-            atacando = true;
-        } else {
-            atacando=false;
-        }
+        } 
     }
    
-
 }

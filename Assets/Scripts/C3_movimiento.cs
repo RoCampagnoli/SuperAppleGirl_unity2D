@@ -122,14 +122,14 @@ public class C3_movimiento : MonoBehaviour {
                */
         // Movimiento en X, preservando la velocidad en Y del motor físico
         rb.velocity = new Vector2(movimientoHorizontal * speed, rb.velocity.y);
-        //usamos el Mathf-- devuelve un valor absoluto, siempre positivo
+        
         AnimacionPlayer();
         GirarPlayer();
         
     }
 
     private void AnimacionPlayer() {
-
+        //usamos el Mathf-- devuelve un valor absoluto, siempre positivo
         if (Mathf.Abs(rb.velocity.x) > 0) {
             animator.SetFloat("xVelocity", 1);
             //C A M I N A N D O
@@ -143,13 +143,13 @@ public class C3_movimiento : MonoBehaviour {
 
     private void GirarPlayer() {
         //si se esta moviendo a la izquierda, giro al player
-        if(rb.velocity.x>0 && !giroIzq) {
+        if(rb.velocity.x<0 && !giroIzq) {
             giroIzq = true;
             Vector3 ls=transform.localScale;//guardo la escala actual del objeto
             ls.x *= -1;//invierto el eje X
             transform.localScale = ls;//aplico el cambio
 
-        } else if (rb.velocity.x<0 && giroIzq) { 
+        } else if (rb.velocity.x>0 && giroIzq) { 
             giroIzq = false;
             Vector3 ls = transform.localScale;
             ls.x *= -1;
