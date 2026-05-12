@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class C5_colisiones : MonoBehaviour{
     private PersonajeVida jugador;
-    private int puntos = 10;
-   
+    private C4_malvados malvado;
+
+
     void Start(){
         jugador= GetComponent<PersonajeVida>();
     }
@@ -16,21 +17,13 @@ public class C5_colisiones : MonoBehaviour{
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("malvado verde"))
-        {
-            Debug.Log("toque al malo");
-            if(jugador != null)
-            {
-                jugador.PerderVida(puntos);
+         malvado = collision.gameObject.GetComponent<C4_malvados>();
 
-            }
-            else
-            {
-                Debug.Log("No se pudo restar vida");
-            }
-           
-            
-        }
+         if (malvado != null &&  (jugador != null && jugador.vida>0)){
+
+             jugador.PerderVida(malvado.getDanio());
+
+         }
     }
     /*private void OnCollisionStay2D(Collision2D collision)
    {

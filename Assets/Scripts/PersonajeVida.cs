@@ -6,6 +6,7 @@ public class PersonajeVida : MonoBehaviour{
     public int vida=100;
     public int manzanas = 10;
     public bool tengoEspada = false;
+    public bool tengoLlave = false;
     private Animator animator;
 
     void Start(){

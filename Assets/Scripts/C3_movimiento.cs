@@ -16,7 +16,7 @@ public class C3_movimiento : MonoBehaviour {
     [SerializeField] private float valMultSpeed = 1.5f;
 
     //para saltar
-    [SerializeField] private float fuerzaSalto = 15f;
+    [SerializeField] private float fuerzaSalto = 17f;
     private bool saltoActivo = false;
 
     private Rigidbody2D rb;

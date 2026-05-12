@@ -6,11 +6,14 @@ public class C5_pickUps : MonoBehaviour{
   
     private PersonajeVida jugador;
 
-    public enum TipoElemento { Manzana,pVerde,pRoja,pAzul,espada}
+    public enum TipoElemento { Manzana,pVerde,pRoja,pAzul,espada,llave};
     public TipoElemento elemento;
-    
+
+    private AudioSource aSource;
+    [SerializeField] public AudioClip clip;
+
     void Start(){
-        
+        aSource= GetComponent<AudioSource>();
     }
 
     void Update(){
@@ -26,7 +29,8 @@ public class C5_pickUps : MonoBehaviour{
                 AplicarEfectoElemento();
                 gameObject.SetActive(false);
             }
-       
+            AudioSource.PlayClipAtPoint(clip, transform.position);
+            Destroy(gameObject);
         }
     }
     private void AplicarEfectoElemento()
@@ -47,6 +51,9 @@ public class C5_pickUps : MonoBehaviour{
                 break;
             case TipoElemento.espada:
                 jugador.tengoEspada = true;
+                break;
+            case TipoElemento.llave:
+                jugador.tengoLlave = true;
                 break;
 
         }
