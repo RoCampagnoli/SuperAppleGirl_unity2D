@@ -12,11 +12,12 @@ TagManager:
   - p.Azul
   - p.Roja
   - malvado Violeta
+  - llave
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Enemigos
   - Water
   - UI
   - 

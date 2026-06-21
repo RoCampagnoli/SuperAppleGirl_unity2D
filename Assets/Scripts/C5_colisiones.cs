@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class C5_colisiones : MonoBehaviour{
     private PersonajeVida jugador;
-    private C4_malvados malvado;
+    private C4_malvados malvado; 
+    private C4_malvados malvadoTocando;
 
 
     void Start(){
@@ -25,10 +26,20 @@ public class C5_colisiones : MonoBehaviour{
 
          }
     }
-    /*private void OnCollisionStay2D(Collision2D collision)
-   {
-       Debug.Log("tocando");
-   }*/
+    private void OnCollisionStay2D(Collision2D collision) {
+        malvadoTocando = collision.gameObject.GetComponent<C4_malvados>();
+        // mientras el enemigo me sigue tocando, sigue restando vida,
+        // respetando el cooldown del enemigo
+
+        if (malvadoTocando != null && (jugador != null && jugador.vida > 0)) {
+            if (malvadoTocando.PuedeGolpear()) {
+                jugador.PerderVida(malvadoTocando.getDanio());
+                Debug.Log("tocando");
+            }
+        }
+    }
+
+       
     
 
 }

@@ -6,8 +6,8 @@ public class C5_pickUps : MonoBehaviour{
   
     private PersonajeVida jugador;
 
-    public enum TipoElemento { Manzana,pVerde,pRoja,pAzul,espada,llave};
-    public TipoElemento elemento;
+    public enum TipoElemento {pVerde,pRoja,pAzul};
+    public TipoElemento pocion;
 
     private AudioSource aSource;
     [SerializeField] public AudioClip clip;
@@ -35,27 +35,16 @@ public class C5_pickUps : MonoBehaviour{
     }
     private void AplicarEfectoElemento()
     {
-        switch (elemento)
-        {
-            case TipoElemento.Manzana:
-                jugador.CantidadManzanas(1);
-                break;
+        switch (pocion){
             case TipoElemento.pVerde:
-                jugador.SumarVidaConPocion(10);
+                jugador.SumarVidaConPocion(20);
                 break;
             case TipoElemento.pAzul:
-                jugador.SumarVidaConPocion(5);
+                jugador.SumarVidaConPocion(10);
                 break;
             case TipoElemento.pRoja:
-                jugador.SumarVidaConPocion(1);
+                jugador.SumarVidaConPocion(5);
                 break;
-            case TipoElemento.espada:
-                jugador.tengoEspada = true;
-                break;
-            case TipoElemento.llave:
-                jugador.tengoLlave = true;
-                break;
-
         }
     }
 
